@@ -178,3 +178,13 @@ Object.prototype.getKey = function(value){
   }
   return null;
 };
+
+addEventListener("keydown", function (e) {
+  lastKey = keys.getKey(e.keyCode);
+  if (['up', 'down', 'left', 'right'].indexOf(lastKey) >= 0
+      && lastKey != inverseDirection[snake.direction]) {
+    snake.direction = lastKey;
+  } else if (['start_game'].indexOf(lastKey) >= 0 && game.over) {
+    game.start();
+  }
+}, false);
