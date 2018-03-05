@@ -135,3 +135,23 @@ snake = {
   }
 
 };
+
+food = {
+
+  size: null,
+  x: null,
+  y: null,
+  color: '#0FF',
+
+  set: function() {
+    food.size = snake.size;
+    food.x = (Math.ceil(Math.random() * 10) * snake.size * 4) - snake.size / 2;
+    food.y = (Math.ceil(Math.random() * 10) * snake.size * 3) - snake.size / 2;
+  },
+
+  draw: function() {
+    game.drawBox(food.x, food.y, food.size, food.color);
+  }
+
+};
+
